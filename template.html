@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Strength Checker</h1>
+        <p class="subtitle">
+            Check your password's strength and improve your security.
+        </p>
+
+        <form method="POST">
+            <label for="password">Enter a password</label>
+
+            <div class="password-box">
+                <input type="password"
+                       id="password"
+                       name="password"
+                       placeholder="Enter a test password"
+                       required>
+                <button type="button" id="toggle">Show</button>
+            </div>
+
+            <button class="check-btn" type="submit">
+                Check Strength
+            </button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Strength: {{ result }}</h2>
+
+                <div class="meter">
+                    <div class="fill level-{{ level }}"></div>
+                </div>
+
+                <h3>Password checklist</h3>
+                <ul>
+                    {% for description, passed in checks.items() %}
+                    <li class="{{ 'passed' if passed else 'failed' }}">
+                        {{ '✓' if passed else '✗' }} {{ description }}
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                {% if suggestions %}
+                    <h3>Suggestions to improve</h3>
+                    <ul>
+                        {% for suggestion in suggestions %}
+                            <li>{{ suggestion }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>All listed checks passed!</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <p class="note">
+            Use a test password. This demo does not save passwords,
+            but the password is submitted to your local Flask server.
+        </p>
+    </div>
+
+    <script>
+        const password = document.getElementById("password");
+        const toggle = document.getElementById("toggle");
+
+        toggle.addEventListener("click", function () {
+            if (password.type === "password") {
+                password.type = "text";
+                toggle.textContent = "Hide";
+            } else {
+                password.type = "password";
+                toggle.textContent = "Show";
+            }
+        });
+    </script>
+</body>
+</html>

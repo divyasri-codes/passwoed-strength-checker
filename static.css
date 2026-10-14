@@ -1,0 +1,131 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101827, #263b59);
+    color: #f8fafc;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+    background: #ffffff;
+    color: #172033;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    margin: 24px 0 8px;
+    font-weight: bold;
+}
+
+.password-box {
+    display: flex;
+    gap: 8px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+#toggle {
+    background: #e2e8f0;
+}
+
+.check-btn {
+    width: 100%;
+    margin-top: 16px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.check-btn:hover {
+    background: #1d4ed8;
+}
+
+.result {
+    margin-top: 24px;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.result h2 {
+    font-size: 21px;
+}
+
+.meter {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.level-0 { width: 0; }
+.level-1 { width: 25%; background: #dc2626; }
+.level-2 { width: 50%; background: #f59e0b; }
+.level-3 { width: 75%; background: #16a34a; }
+.level-4 { width: 100%; background: #15803d; }
+
+.result ul {
+    padding-left: 22px;
+    line-height: 1.9;
+}
+
+.passed {
+    color: #15803d;
+}
+
+.failed {
+    color: #b91c1c;
+}
+
+.note {
+    margin-top: 22px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
